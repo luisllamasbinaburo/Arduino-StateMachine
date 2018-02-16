@@ -23,34 +23,34 @@ En el uso, conviene crear enumeraciones para los Estados, y es posible que para 
 ### Constructor
 
 ```c++
-	StateMachine(uint8_t numStates, uint8_t numTransitions);
+StateMachine(uint8_t numStates, uint8_t numTransitions);
 ```
 ### Métodos generales
 ```c++
-	// Configurar una transición
-	void SetTransition(uint8_t transition, uint8_t inputState, uint8_t outputState, StateMachineCondition condition);
-	void SetTransition(uint8_t transition, uint8_t inputState, uint8_t outputState, StateMachineCondition condition, StateMachineAction action);
+// Configurar una transición
+void SetTransition(uint8_t transition, uint8_t inputState, uint8_t outputState, StateMachineCondition condition);
+void SetTransition(uint8_t transition, uint8_t inputState, uint8_t outputState, StateMachineCondition condition, StateMachineAction action);
 	
-	// Configurar una transición, usa un contador interno. Util para inicialización inicial.
-	uint8_t AddTransition(uint8_t inputState, uint8_t outputState, StateMachineCondition condition);
-	uint8_t AddTransition(uint8_t inputState, uint8_t outputState, StateMachineCondition condition, StateMachineAction action);
+// Configurar una transición, usa un contador interno. Util para inicialización inicial.
+uint8_t AddTransition(uint8_t inputState, uint8_t outputState, StateMachineCondition condition);
+uint8_t AddTransition(uint8_t inputState, uint8_t outputState, StateMachineCondition condition, StateMachineAction action);
 
-	// Deshabilitar una transición
-	void RemoveTransition(uint8_t transition);
+// Deshabilitar una transición
+void RemoveTransition(uint8_t transition);
 	
-	// Configurar acciones entrada y salida de un estado
-	void SetOnEntering(uint8_t state, StateMachineAction action);
-	void SetOnLeaving(uint8_t state, StateMachineAction action);
-	void ClearOnEntering(uint8_t state);
-	void ClearOnLeaving(uint8_t state);
+// Configurar acciones entrada y salida de un estado
+void SetOnEntering(uint8_t state, StateMachineAction action);
+void SetOnLeaving(uint8_t state, StateMachineAction action);
+void ClearOnEntering(uint8_t state);
+void ClearOnLeaving(uint8_t state);
 	
-	// Cambiar la maquina a un estado
-	void SetState(uint8_t state, bool launchLeaving, bool launchEntering);
-	uint8_t GetState() const;
+// Cambiar la maquina a un estado
+void SetState(uint8_t state, bool launchLeaving, bool launchEntering);
+uint8_t GetState() const;
 	
-	// Actualizar el estado de la maquina
-	// Esta función tiene que ser llamada frecuentemente desde el bucle principal
-	bool Update();
+// Actualizar el estado de la maquina
+// Esta función tiene que ser llamada frecuentemente desde el bucle principal
+bool Update();
 ```
 
 ## Ejemplos
