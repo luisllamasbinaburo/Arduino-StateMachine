@@ -56,7 +56,7 @@ En el uso, conviene crear enumeraciones para los Estados, y es posible que para 
 ## Ejemplos
 La librería StateMachine incluye los siguientes ejemplos para ilustrar su uso.
 
-* StateMachine: Ejemplo que muestra una función temporizada sencilla
+* StateMachine: Ejemplo que muestra el uso de StateMachine.
 ```c++
 #include "StateMachineLib.h"
 
@@ -183,7 +183,7 @@ void outputD()
 }
 ```
 
-* Herencia: Ejemplo que muestra una función temporizada sencilla
+* Herencia: Ejemplo que muestra el uso de StateMachine mediante una clase derivada.
 ```c++
 #include "StateMachineLib.h"
 
@@ -241,6 +241,7 @@ public:
 			Serial.println("X            ");
 			Serial.println();
 		});
+		
 		SetOnEntering(PosicionC, []()
 		{
 			Serial.println("A   B   C   D");
