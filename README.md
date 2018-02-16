@@ -2,6 +2,7 @@
 # Librería Arduino List
 
 La librería StateMachine implementa una máquina de estados que puede ejecutarse en un procesador como Arduino.
+
 Más información https://www.luisllamas.es/libreria-arduino-statemachine/
 
 ## Instrucciones de uso
