@@ -1,0 +1,27 @@
+#######################################
+# Syntax Coloring Map StateMachine
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+StateMachine	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+SetTransition	KEYWORD2
+ClearTransition	KEYWORD2
+SetOnEntering	KEYWORD2
+SetOnState	KEYWORD2
+SetOnLeaving	KEYWORD2
+ClearOnEntering	KEYWORD2
+ClearOnState	KEYWORD2
+ClearOnLeaving	KEYWORD2
+SetState	KEYWORD2
+GetState	KEYWORD2
+Update	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
