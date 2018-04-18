@@ -1,5 +1,6 @@
 #include "StateMachineLib.h"
 
+// State Alias
 enum State
 {
 	PosicionA = 0,
@@ -8,6 +9,7 @@ enum State
 	PosicionD = 3
 };
 
+// Input Alias
 enum Input
 {
 	Reset = 0,
@@ -16,11 +18,16 @@ enum Input
 	Unknown = 3,
 };
 
+// Create new StateMachine
 StateMachine stateMachine(4, 9);
+
+// Stores last user input
 Input input;
 
+// Setup the State Machine
 void setupStateMachine()
 {
+	// Add transitions
 	stateMachine.AddTransition(PosicionA, PosicionB, []() { return input == Forward; });
 
 	stateMachine.AddTransition(PosicionB, PosicionA, []() { return input == Backward; });
@@ -34,6 +41,7 @@ void setupStateMachine()
 	stateMachine.AddTransition(PosicionD, PosicionC, []() { return input == Backward; });
 	stateMachine.AddTransition(PosicionD, PosicionA, []() { return input == Reset; });
 
+	// Add actions
 	stateMachine.SetOnEntering(PosicionA, outputA);
 	stateMachine.SetOnEntering(PosicionB, outputB);
 	stateMachine.SetOnEntering(PosicionC, outputC);
@@ -53,16 +61,20 @@ void setup()
 	setupStateMachine();	
 	Serial.println("Start Machine Started");
 
+	// Initial state
 	stateMachine.SetState(PosicionA, false, true);
 }
 
 void loop() 
 {
+	// Read user input
 	input = static_cast<Input>(readInput());
 
+	// Update State Machine
 	stateMachine.Update();
 }
 
+// Auxiliar function that reads the user input
 int readInput()
 {
 	Input currentInput = Input::Unknown;
@@ -82,6 +94,7 @@ int readInput()
 	return currentInput;
 }
 
+// Auxiliar output functions that show the state debug
 void outputA()
 {
 	Serial.println("A   B   C   D");
